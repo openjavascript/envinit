@@ -1,0 +1,28 @@
+{
+  "name": "evninit",
+  "version": "1.0.0",
+  "description": "init project enviroment",
+  "main": "envinit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openjavascript/envinit.git"
+  },
+  "author": "suches <908202921@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openjavascript/envinit/issues"
+  },
+  "homepage": "https://github.com/openjavascript/envinit#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^5.2.0",
+    "shelljs": "^0.8.2"
+  }
+}
