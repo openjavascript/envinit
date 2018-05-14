@@ -28,12 +28,10 @@ export default class App {
         this.appRoot = appRoot;
         this.projectRoot = projectRoot;
 
-        /*
         console.log( [ 
             'appRoot: ' + this.appRoot
             , 'projectRoot: ' + this.projectRoot 
             ].join("\n") );
-        */
 
         this.init();
 

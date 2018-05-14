@@ -2,9 +2,9 @@
   "name": "envinit",
   "version": "1.0.3",
   "description": "init project enviroment",
-  "main": "envinit.js",
+  "main": "bin/envinit.js",
   "bin": {
-    "envinit": "envinit.js"
+    "envinit": "bin/envinit.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/openjavascript/envinit.git"
   },
+  "keywords": [
+    "envinit"
+  ],
   "author": "suches <908202921@qq.com>",
   "license": "MIT",
   "bugs": {
