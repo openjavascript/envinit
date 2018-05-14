@@ -1,5 +1,5 @@
 {
-  "name": "evninit",
+  "name": "envinit",
   "version": "1.0.2",
   "description": "init project enviroment",
   "main": "envinit.js",
