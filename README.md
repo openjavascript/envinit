@@ -10,7 +10,7 @@
     sudo cnpm install envinit -g
 
 ## 使用
-### 方法1: 换到项目根目录, 然后执行命令 envinit
+### 方法1: 切换到项目根目录, 然后执行命令 envinit
     cd projectRoot && envinit
 
 ### 方法2: 使用 envinit 路径, 支持相对路径
