@@ -15,8 +15,8 @@ const warning = chalk.keyword('orange');
 const success = chalk.greenBright;
 const info = chalk.bold.blue;
 
-import * as CONST from '../data/constant.js';
-import * as DATA from '../data/data.js';
+import * as CONST from './data/constant.js';
+import * as DATA from './data/data.js';
 
 import ProjectNextVirus from './ProjectNextVirus.js';
 import ProjectPrivateOperation from './ProjectPrivateOperation.js';

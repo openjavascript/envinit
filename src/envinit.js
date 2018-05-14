@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const get_args = require('../utils/get_args.js');
+const get_args = require('./utils/get_args.js');
 
 const APP_ROOT = path.resolve(__dirname, '..');
 let PROJECT_ROOT = process.env.PWD;
