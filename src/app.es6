@@ -13,10 +13,13 @@ import inquirer from 'inquirer';
 const error = chalk.bold.red;
 const warning = chalk.keyword('orange');
 const success = chalk.greenBright;
-const info = chalk.blue;
+const info = chalk.bold.blue;
 
 import * as CONST from '../data/constant.es6';
 import * as DATA from '../data/data.es6';
+
+import ProjectNextVirus from './ProjectNextVirus.es6';
+import ProjectPrivateOperation from './ProjectPrivateOperation.es6';
 
 
 export default class App {
@@ -25,10 +28,12 @@ export default class App {
         this.appRoot = appRoot;
         this.projectRoot = projectRoot;
 
+        /*
         console.log( [ 
             'appRoot: ' + this.appRoot
             , 'projectRoot: ' + this.projectRoot 
             ].join("\n") );
+        */
 
         this.init();
 
@@ -39,6 +44,42 @@ export default class App {
         clear();
 
         this.gitdir = [ this.projectRoot, '.git' ].join( '/' );
+
+
+        this.file_envsrc = [ this.projectRoot, '.env.example' ].join( '/' );
+        this.file_env = [ this.projectRoot, '.env' ].join( '/' );
+
+        this.file_prodsrc = [ this.projectRoot, 'prod.config.js.example' ].join( '/' );
+        this.file_prod = [ this.projectRoot, 'prod.config.js' ].join( '/' );
+
+        this.dir_public = [ this.projectRoot, 'public' ].join( '/' );
+        this.dir_public_dev = [ this.projectRoot, 'public_dev' ].join( '/' );
+
+        this.dir_vendor = [ this.projectRoot, 'vendor' ].join( '/' );
+
+        this.phptool = [ this.appRoot, 'tools', 'composer.phar' ].join( '/' );
+
+        this.init_public = 'no';
+
+        this.permissionDir = [
+            [ this.projectRoot, 'bootstrap' ].join( '/' )
+            , [ this.projectRoot, 'storage' ].join( '/' )
+            , [ this.projectRoot, 'public' ].join( '/' )
+            , [ this.projectRoot, 'public_dev' ].join( '/' )
+            , this.phptool
+        ];
+
+
+        this.ip         = '';
+        this.port       = '';
+        this.host       = '';
+        this.db_pwd     = '';
+
+        this.system;
+        this.systemName;
+        this.systemData;
+
+        this.project;
 
         this.prompt = inquirer.createPromptModule();
         this.welcome();
@@ -55,12 +96,91 @@ export default class App {
             return;
         }
 
-        this.system = this.detectSystem();
-
+        this.systemName = this.detectSystem();
+        if( this.systemName ){
+            this.systemData = CONST.PROJECT_ITEMS[ this.systemName ];
+            this.system = this.systemData.value;
+        }
+        /*
+        console.log( this.systemName, this.system );
+        return;
+        */
         if( !this.system ){
             console.log( error( CONST.PROJECT_UNRECOGNIZED ) );
             return;
         }
+
+        console.log();
+        this.getHost().then( ()=> {
+            if( this.ip ){
+                console.log();
+                return this.getPort();
+            }else{
+                return new Promise( function( resolve ){
+                    setTimeout( resolve, 1);
+                });
+            }
+        }).then( ()=>{
+            console.log();
+            return this.getDbPwd();
+        }).then( () => {
+            console.log();
+            return this.initPublic();
+        }).then( () => {
+            console.log();
+            if( this.ip ) {
+                this.host = this.ip;
+            }
+            if( this.port ) {
+                if( this.host ){
+                    this.host = [ this.host, this.port ].join(':');
+                }
+            }
+
+            if( this.host ){
+                console.log( info( [ 'host：', this.host ].join(' ' ) ) );
+            }
+
+            return new Promise( function( resolve ){
+                setTimeout( resolve, 1);
+            });
+        }).then( ()=>{
+            let projectLogic = this[ 'project_' + this.system ];
+            if( !projectLogic ) return;
+
+            projectLogic = projectLogic.bind( this );
+            //console.log( `project ${this.system} logic,`, this.systemName );
+            projectLogic();
+        });
+    }
+
+    project_1() {
+        this.project = new ProjectNextVirus( this );
+    }
+
+    project_2() {
+        this.project = new ProjectPrivateOperation( this );
+    }
+
+    async initPublic(){
+        let data = await this.prompt( DATA.Q_INIT_PUBLIC );
+        this.init_public = ( data.init_public || '' ).trim();
+    }
+
+
+    async getHost(){
+        let data = await this.prompt( DATA.Q_IP_LIST );
+        this.ip = ( data.ip || '' ).trim();
+    }
+
+    async getPort(){
+        let data = await this.prompt( DATA.Q_PORT_LIST );
+        this.port = data.port;
+    }
+
+    async getDbPwd(){
+        let data = await this.prompt( DATA.Q_DB_PWD_LIST );
+        this.db_pwd = data.db_pwd;
     }
 
     fileExists( file ) {
@@ -79,6 +199,16 @@ export default class App {
           )
         );
         console.log();
+        console.log( info( 'github: https://github.com/openjavascript/envinit' ) );
+
+        console.log();
+        console.log( info( '使用:' ) );
+        console.log( info( '     方法1: 切换到项目根目录, 然后执行命令 envinit' ) );
+        console.log( info( '            cd projectRoot && envinit' ) );
+        console.log();
+        console.log( info( '     方法2: 使用 envinit 路径, 支持相对路径' ) );
+        console.log( info( '            envinit /var/www/your_project_root' ) );
+        console.log();
     }
 
     detectSystem( ) {
@@ -90,11 +220,17 @@ export default class App {
             //, 'echo ' + this.projectRoot
         ].join('&&') 
 
-        let gitinfo = shell.exec( 
-            cmd
-        );
+        let cmdinfo = shell.exec( cmd );
 
-        console.log( gitinfo );
+        console.dir( CONST.PROJECT_ITEMS )
+
+        //console.log( cmdinfo );
+
+        for( let k in CONST.PROJECT_ITEMS ){
+            if( cmdinfo.indexOf( k ) < 0 ) continue;
+            r = k;
+            break;
+        }
 
         return r;
     }
@@ -104,13 +240,4 @@ export default class App {
 export function init( APP_ROOT, PROJECT_ROOT ){
     let AppIns = new App( APP_ROOT, PROJECT_ROOT ); 
 }
-
-
-/*
-prompt( Q_PROJECT_LIST ).then( ()=>{
-});
-*/
-
-
-//console.log( [ ROOT ].join( "\n" ) );
 

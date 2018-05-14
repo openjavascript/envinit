@@ -1,14 +1,21 @@
 
 
 export const APPNAME = 'EVNINIT';
-export const TITLE = '系统环境初始化工具';
+export const TITLE = '项目环境初始化工具';
 
-export const NEXT_VIRUS = "1";
-export const PRIVATE_OPERATION = "2";
+export const NEXT_VIRUS = "next_virus_scanner_web";
+export const PRIVATE_OPERATION = "private_operation_web";
 
-export let PROJECT_NAME = {};
-PROJECT_NAME[ NEXT_VIRUS ] =  "行为分析项目";
-PROJECT_NAME[ PRIVATE_OPERATION ] =  "云运营平台";
+let project_items = {};
+project_items[ NEXT_VIRUS ] =  {
+    "name": "行为分析项目"
+    , "value": "1"
+};
+project_items[ PRIVATE_OPERATION ] =  {
+    "name": "云运营平台"
+    , "value": "2"
+};
+export const PROJECT_ITEMS = project_items;
 
 export const PROJECT_ROOT_NOT_EXISTS = "找不到项目根目录, 请指定有效的目录";
 

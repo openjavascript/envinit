@@ -1,6 +1,21 @@
 
+const path = require( 'path' );
+
+const get_args = require( './utils/get_args.js' );
+
 const APP_ROOT = __dirname;
-const PROJECT_ROOT = process.env.PWD;
+let PROJECT_ROOT = process.env.PWD;
+
+let args = get_args( process );
+
+if( args.length && /\//.test( args[0] ) ){
+    PROJECT_ROOT = path.resolve( args[0] );
+}
+
+/*
+console.log( args, PROJECT_ROOT );
+return;
+*/
 
 require('babel-core/register');
 const init = require( './src/app.es6' ).init;
