@@ -1,12 +1,13 @@
 
-const path = require( 'path' );
+const fs = require('fs');
+const path = require('path');
 
-const get_args = require( '../utils/get_args.js' );
+const get_args = require('../utils/get_args.js');
 
 const APP_ROOT = path.resolve(__dirname, '..');
 let PROJECT_ROOT = process.env.PWD;
 
-let args = get_args( process );
+let args = get_args(process);
 
 if( args.length && /\//.test( args[0] ) ){
     PROJECT_ROOT = path.resolve( args[0] );
