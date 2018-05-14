@@ -1,6 +1,6 @@
 {
   "name": "envinit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "init project enviroment",
   "main": "bin/envinit.js",
   "bin": {
@@ -14,12 +14,12 @@
     "url": "git+https://github.com/openjavascript/envinit.git"
   },
   "keywords": [
-    "envinit"
-    , "env"
-    , "init"
-    , "node"
-    , "javascript"
-    , "suches"
+    "envinit",
+    "env",
+    "init",
+    "node",
+    "javascript",
+    "suches"
   ],
   "author": "suches <908202921@qq.com>",
   "license": "MIT",
