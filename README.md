@@ -7,7 +7,7 @@
     注意: 这个工具只能初始化开发环境, 服务器环境还是需要自己手动搭建
 
 ## 全局安装
-    sudo cnpm install envinit -g
+    sudo npm install envinit -g
 
 ## 使用
 ### 方法1: 换到项目根目录, 然后执行命令 envinit
