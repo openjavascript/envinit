@@ -1,14 +1,14 @@
 {
   "name": "envinit",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "init project enviroment",
   "main": "src/envinit.js",
   "bin": {
     "envinit": "bin/envinit.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    , "build": "babel src/ -d bin/" 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/ -d bin/"
   },
   "repository": {
     "type": "git",
