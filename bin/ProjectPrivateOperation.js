@@ -22,7 +22,7 @@ var _clear = require("clear");
 
 var _clear2 = _interopRequireDefault(_clear);
 
-var _Project2 = require("./Project.es6");
+var _Project2 = require("./Project.js");
 
 var _Project3 = _interopRequireDefault(_Project2);
 

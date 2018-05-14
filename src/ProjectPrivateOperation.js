@@ -11,16 +11,16 @@ const warning = chalk.keyword('orange');
 const success = chalk.greenBright;
 const info = chalk.bold.blue;
 
-import Project from './Project.es6';
+import Project from './Project.js';
 
-export default class ProjectNextVirus extends Project {
+export default class ProjectPrivateOperation extends Project {
     constructor( app ){
         super( app );
     }
 
     init() {
         this.initEnv();
-        this.initProd();
+        //this.initProd();
         this.initStaticDir();
         this.initPermission(true);
         this.initNode();

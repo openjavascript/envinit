@@ -15,11 +15,11 @@ const warning = chalk.keyword('orange');
 const success = chalk.greenBright;
 const info = chalk.bold.blue;
 
-import * as CONST from '../data/constant.es6';
-import * as DATA from '../data/data.es6';
+import * as CONST from '../data/constant.js';
+import * as DATA from '../data/data.js';
 
-import ProjectNextVirus from './ProjectNextVirus.es6';
-import ProjectPrivateOperation from './ProjectPrivateOperation.es6';
+import ProjectNextVirus from './ProjectNextVirus.js';
+import ProjectPrivateOperation from './ProjectPrivateOperation.js';
 
 
 export default class App {
@@ -220,7 +220,7 @@ export default class App {
 
         let cmdinfo = shell.exec( cmd );
 
-        console.dir( CONST.PROJECT_ITEMS )
+        //console.dir( CONST.PROJECT_ITEMS )
 
         //console.log( cmdinfo );
 

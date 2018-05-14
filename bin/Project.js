@@ -34,11 +34,11 @@ var _inquirer = require("inquirer");
 
 var _inquirer2 = _interopRequireDefault(_inquirer);
 
-var _constant = require("../data/constant.es6");
+var _constant = require("../data/constant.js");
 
 var CONST = _interopRequireWildcard(_constant);
 
-var _data = require("../data/data.es6");
+var _data = require("../data/data.js");
 
 var DATA = _interopRequireWildcard(_data);
 

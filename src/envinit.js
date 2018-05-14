@@ -20,5 +20,5 @@ return;
 */
 
 require('babel-core/register');
-const init = require( '../src/app.es6' ).init;
+const init = require( './app' ).init;
 init( APP_ROOT, PROJECT_ROOT );

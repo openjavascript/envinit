@@ -3,7 +3,7 @@ import {
     PROJECT_ITEMS
     , NEXT_VIRUS
     , PRIVATE_OPERATION
-} from './constant.es6';
+} from './constant.js';
 
 
 export const Q_PROJECT_LIST = [

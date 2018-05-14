@@ -36,19 +36,19 @@ var _inquirer = require("inquirer");
 
 var _inquirer2 = _interopRequireDefault(_inquirer);
 
-var _constant = require("../data/constant.es6");
+var _constant = require("../data/constant.js");
 
 var CONST = _interopRequireWildcard(_constant);
 
-var _data = require("../data/data.es6");
+var _data = require("../data/data.js");
 
 var DATA = _interopRequireWildcard(_data);
 
-var _ProjectNextVirus = require("./ProjectNextVirus.es6");
+var _ProjectNextVirus = require("./ProjectNextVirus.js");
 
 var _ProjectNextVirus2 = _interopRequireDefault(_ProjectNextVirus);
 
-var _ProjectPrivateOperation = require("./ProjectPrivateOperation.es6");
+var _ProjectPrivateOperation = require("./ProjectPrivateOperation.js");
 
 var _ProjectPrivateOperation2 = _interopRequireDefault(_ProjectPrivateOperation);
 
@@ -253,7 +253,7 @@ var App = function () {
 
             var cmdinfo = _shelljs2.default.exec(cmd);
 
-            console.dir(CONST.PROJECT_ITEMS);
+            //console.dir( CONST.PROJECT_ITEMS )
 
             //console.log( cmdinfo );
 

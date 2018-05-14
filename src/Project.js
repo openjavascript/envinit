@@ -16,8 +16,8 @@ const warning = chalk.keyword('orange');
 const success = chalk.greenBright;
 const info = chalk.bold.blue;
 
-import * as CONST from '../data/constant.es6';
-import * as DATA from '../data/data.es6';
+import * as CONST from '../data/constant.js';
+import * as DATA from '../data/data.js';
 
 export default class Project {
     constructor( app ){
