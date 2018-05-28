@@ -1,6 +1,6 @@
 {
   "name": "envinit",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "init project enviroment",
   "main": "src/main.js",
   "bin": {
