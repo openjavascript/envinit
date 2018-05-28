@@ -16,6 +16,16 @@ export const Q_PROJECT_LIST = [
     }
 ];
 
+export let Q_NODE_CMD_LIST = [
+    { 
+        "name": "nodeCmd"
+        , "type": "list"
+        , "message": "请选择初始化node_modules的命令"
+        , "choices": [ 'yarn', 'cnpm', 'npm' ]
+        , "default": 'yarn'
+    }
+];
+
 export const Q_INIT_PUBLIC = [
     { 
         "name": "init_public"

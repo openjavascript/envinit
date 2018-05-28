@@ -68,6 +68,22 @@ export default class Project {
     initNode() {
         let cmd, cmdinfo, pmg, pmgName;
 
+
+        pmgName = this.app.nodeCmd;
+        pmg = shell.which( pmgName );
+        //console.log( pmg );
+        if( pmg ) {
+            cmd = [
+                'cd ' + this.app.projectRoot
+                , `${pmgName} install`
+            ].join('&&') 
+            console.log( '\n', info( `使用 ${pmgName} 安装node依赖，安装速度取决于你的网络, 中间出现错误请忽略.` ), '\n' );
+            cmdinfo = shell.exec( cmd );
+            return;
+        }
+
+
+        /*
         pmgName = 'yarn';
         pmg = shell.which( pmgName );
         //console.log( pmg );
@@ -106,6 +122,7 @@ export default class Project {
             cmdinfo = shell.exec( cmd );
             return;
         }
+        */
 
         console.log( error( '无法安装node依赖，请安装 yarn, cnpm, npm' ) );
         return;

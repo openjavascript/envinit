@@ -158,6 +158,9 @@ var App = function () {
                 return _this.getDbPwd();
             }).then(function () {
                 console.log();
+                return _this.nodeCmdList();
+            }).then(function () {
+                console.log();
                 return _this.initPublic();
             }).then(function () {
                 console.log();
@@ -195,6 +198,38 @@ var App = function () {
         key: "project_2",
         value: function project_2() {
             this.project = new _ProjectPrivateOperation2.default(this);
+        }
+    }, {
+        key: "nodeCmdList",
+        value: async function nodeCmdList() {
+            var tmp = this.initCmdList();
+            var data = await this.prompt(tmp);
+            this.nodeCmd = (data.nodeCmd || '').trim();
+        }
+    }, {
+        key: "initCmdList",
+        value: function initCmdList() {
+            var tmp = DATA.Q_NODE_CMD_LIST,
+                list = ['npm'],
+                def = list[0],
+                cmd = '';
+
+            cmd = 'cnpm';
+            if (_shelljs2.default.which(cmd)) {
+                list.unshift(cmd);
+                def = cmd;
+            }
+
+            cmd = 'yarn';
+            if (_shelljs2.default.which(cmd)) {
+                list.unshift(cmd);
+                def = cmd;
+            }
+
+            DATA.Q_NODE_CMD_LIST[0].choice = list;
+            DATA.Q_NODE_CMD_LIST[0].default = def;
+
+            return tmp;
         }
     }, {
         key: "initPublic",

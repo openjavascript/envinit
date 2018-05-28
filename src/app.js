@@ -67,7 +67,6 @@ export default class App {
             , this.phptool
         ];
 
-
         this.ip         = '';
         this.port       = '';
         this.host       = '';
@@ -123,6 +122,9 @@ export default class App {
             return this.getDbPwd();
         }).then( () => {
             console.log();
+            return this.nodeCmdList();
+        }).then( () => {
+            console.log();
             return this.initPublic();
         }).then( () => {
             console.log();
@@ -160,11 +162,41 @@ export default class App {
         this.project = new ProjectPrivateOperation( this );
     }
 
+    async nodeCmdList() {
+        let tmp = this.initCmdList();
+        let data = await this.prompt( tmp  );
+        this.nodeCmd = ( data.nodeCmd || '' ).trim();
+    }
+
+    initCmdList() {
+        let tmp = DATA.Q_NODE_CMD_LIST
+            , list = [ 'npm' ]
+            , def = list[0]
+            , cmd = ''
+            ;
+
+        cmd = 'cnpm';
+        if( shell.which( cmd ) ){
+            list.unshift( cmd );
+            def = cmd;
+        }
+
+        cmd = 'yarn';
+        if( shell.which( cmd ) ){
+            list.unshift( cmd );
+            def = cmd;
+        }
+
+        DATA.Q_NODE_CMD_LIST[0].choice = list;
+        DATA.Q_NODE_CMD_LIST[0].default = def;
+
+        return tmp;
+    }
+
     async initPublic(){
         let data = await this.prompt( DATA.Q_INIT_PUBLIC );
         this.init_public = ( data.init_public || '' ).trim();
     }
-
 
     async getHost(){
         let data = await this.prompt( DATA.Q_IP_LIST );

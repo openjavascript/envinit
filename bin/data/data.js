@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Q_DB_PWD_LIST = exports.Q_PORT_LIST = exports.Q_IP_LIST = exports.Q_INIT_PUBLIC = exports.Q_PROJECT_LIST = undefined;
+exports.Q_DB_PWD_LIST = exports.Q_PORT_LIST = exports.Q_IP_LIST = exports.Q_INIT_PUBLIC = exports.Q_NODE_CMD_LIST = exports.Q_PROJECT_LIST = undefined;
 
 var _constant = require("./constant.js");
 
@@ -13,6 +13,14 @@ var Q_PROJECT_LIST = exports.Q_PROJECT_LIST = [{
     "message": "请选择要初始化的系统",
     "choices": [_constant.PROJECT_ITEMS[_constant.NEXT_VIRUS].name, _constant.PROJECT_ITEMS[_constant.PRIVATE_OPERATION].name],
     "default": _constant.PROJECT_ITEMS[_constant.NEXT_VIRUS.name]
+}];
+
+var Q_NODE_CMD_LIST = exports.Q_NODE_CMD_LIST = [{
+    "name": "nodeCmd",
+    "type": "list",
+    "message": "请选择初始化node_modules的命令",
+    "choices": ['yarn', 'cnpm', 'npm'],
+    "default": 'yarn'
 }];
 
 var Q_INIT_PUBLIC = exports.Q_INIT_PUBLIC = [{

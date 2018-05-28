@@ -112,7 +112,7 @@ var Project = function () {
                 pmg = void 0,
                 pmgName = void 0;
 
-            pmgName = 'yarn';
+            pmgName = this.app.nodeCmd;
             pmg = _shelljs2.default.which(pmgName);
             //console.log( pmg );
             if (pmg) {
@@ -122,25 +122,44 @@ var Project = function () {
                 return;
             }
 
-            pmgName = 'cnpm';
-            pmg = _shelljs2.default.which(pmgName);
+            /*
+            pmgName = 'yarn';
+            pmg = shell.which( pmgName );
             //console.log( pmg );
-            if (pmg) {
-                cmd = ['cd ' + this.app.projectRoot, pmgName + " install"].join('&&');
-                console.log('\n', info("\u4F7F\u7528 " + pmgName + " \u5B89\u88C5node\u4F9D\u8D56\uFF0C\u5B89\u88C5\u901F\u5EA6\u53D6\u51B3\u4E8E\u4F60\u7684\u7F51\u7EDC\uFF0C\u4E2D\u95F4\u51FA\u73B0\u9519\u8BEF\u8BF7\u5FFD\u7565."), '\n');
-                cmdinfo = _shelljs2.default.exec(cmd);
+            if( pmg ) {
+                cmd = [
+                    'cd ' + this.app.projectRoot
+                    , `${pmgName} install`
+                ].join('&&') 
+                console.log( '\n', info( `使用 ${pmgName} 安装node依赖，安装速度取决于你的网络, 中间出现错误请忽略.` ), '\n' );
+                cmdinfo = shell.exec( cmd );
                 return;
             }
-
-            pmgName = 'npm';
-            pmg = _shelljs2.default.which(pmgName);
+             pmgName = 'cnpm';
+            pmg = shell.which( pmgName );
             //console.log( pmg );
-            if (pmg) {
-                cmd = ['cd ' + this.app.projectRoot, pmgName + " install"].join('&&');
-                console.log('\n', info("\u4F7F\u7528 " + pmgName + " \u5B89\u88C5node\u4F9D\u8D56\uFF0C\u5B89\u88C5\u901F\u5EA6\u53D6\u51B3\u4E8E\u4F60\u7684\u7F51\u7EDC\uFF0C\u4E2D\u95F4\u51FA\u73B0\u9519\u8BEF\u8BF7\u5FFD\u7565."), '\n');
-                cmdinfo = _shelljs2.default.exec(cmd);
+            if( pmg ) {
+                cmd = [
+                    'cd ' + this.app.projectRoot
+                    , `${pmgName} install`
+                ].join('&&') 
+                console.log( '\n', info( `使用 ${pmgName} 安装node依赖，安装速度取决于你的网络，中间出现错误请忽略.` ), '\n' );
+                cmdinfo = shell.exec( cmd );
                 return;
             }
+             pmgName = 'npm';
+            pmg = shell.which( pmgName );
+            //console.log( pmg );
+            if( pmg ) {
+                cmd = [
+                    'cd ' + this.app.projectRoot
+                    , `${pmgName} install`
+                ].join('&&') 
+                console.log( '\n', info( `使用 ${pmgName} 安装node依赖，安装速度取决于你的网络，中间出现错误请忽略.` ), '\n' );
+                cmdinfo = shell.exec( cmd );
+                return;
+            }
+            */
 
             console.log(error('无法安装node依赖，请安装 yarn, cnpm, npm'));
             return;
