@@ -1,6 +1,6 @@
 
 
-export const APPNAME = 'EVNINIT';
+export const APPNAME = 'ENVINIT';
 export const TITLE = '项目环境初始化工具';
 
 export const NEXT_VIRUS = "next_virus_scanner_web";
