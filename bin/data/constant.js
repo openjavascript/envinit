@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var APPNAME = exports.APPNAME = 'EVNINIT';
+var APPNAME = exports.APPNAME = 'ENVINIT';
 var TITLE = exports.TITLE = '项目环境初始化工具';
 
 var NEXT_VIRUS = exports.NEXT_VIRUS = "next_virus_scanner_web";
