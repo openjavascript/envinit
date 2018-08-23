@@ -64,11 +64,12 @@ var success = _chalk2.default.greenBright;
 var info = _chalk2.default.bold.blue;
 
 var App = function () {
-    function App(appRoot, projectRoot) {
+    function App(appRoot, projectRoot, packJSON) {
         _classCallCheck(this, App);
 
         this.appRoot = appRoot;
         this.projectRoot = projectRoot;
+        this.packJSON = packJSON;
 
         console.log(['appRoot: ' + this.appRoot, 'projectRoot: ' + this.projectRoot].join("\n"));
 
@@ -142,6 +143,7 @@ var App = function () {
                 console.log(error(CONST.PROJECT_UNRECOGNIZED));
                 return;
             }
+            _shelljs2.default.exec(['cd ' + this.projectRoot, 'git config core.fileMode false && git config core.autocrlf false'].join('&&'));
 
             console.log();
             this.getHost().then(function () {
@@ -264,7 +266,7 @@ var App = function () {
         key: "welcome",
         value: function welcome() {
             console.log(_chalk2.default.yellow(_figlet2.default.textSync(CONST.APPNAME, { horizontalLayout: 'full' })));
-            console.log(_chalk2.default.bold.yellow(CONST.TITLE));
+            console.log(_chalk2.default.bold.yellow(CONST.TITLE + " - " + this.packJSON.version));
             console.log();
             console.log(info('github: https://github.com/openjavascript/envinit'));
 
@@ -306,6 +308,6 @@ var App = function () {
 }();
 
 exports.default = App;
-function init(APP_ROOT, PROJECT_ROOT) {
-    var AppIns = new App(APP_ROOT, PROJECT_ROOT);
+function init(APP_ROOT, PROJECT_ROOT, packJSON) {
+    var AppIns = new App(APP_ROOT, PROJECT_ROOT, packJSON);
 }

@@ -23,10 +23,11 @@ import ProjectPrivateOperation from './ProjectPrivateOperation.js';
 
 
 export default class App {
-    constructor( appRoot, projectRoot ) {
+    constructor( appRoot, projectRoot, packJSON ) {
 
         this.appRoot = appRoot;
         this.projectRoot = projectRoot;
+        this.packJSON = packJSON;
 
         console.log( [ 
             'appRoot: ' + this.appRoot
@@ -106,6 +107,10 @@ export default class App {
             console.log( error( CONST.PROJECT_UNRECOGNIZED ) );
             return;
         }
+        shell.exec(  [ 
+            'cd ' + this.projectRoot
+            , 'git config core.fileMode false && git config core.autocrlf false'
+        ].join('&&') );
 
         console.log();
         this.getHost().then( ()=> {
@@ -225,7 +230,7 @@ export default class App {
         );
         console.log(
           chalk.bold.yellow(
-            CONST.TITLE
+            `${CONST.TITLE} - ${this.packJSON.version}`
           )
         );
         console.log();
@@ -267,7 +272,7 @@ export default class App {
 
 }
 
-export function init( APP_ROOT, PROJECT_ROOT ){
-    let AppIns = new App( APP_ROOT, PROJECT_ROOT ); 
+export function init( APP_ROOT, PROJECT_ROOT, packJSON ){
+    let AppIns = new App( APP_ROOT, PROJECT_ROOT, packJSON ); 
 }
 

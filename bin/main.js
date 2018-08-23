@@ -15,6 +15,9 @@ if (args.length && /\//.test(args[0])) {
     PROJECT_ROOT = path.resolve(args[0]);
 }
 
+var pack = fs.readFileSync(APP_ROOT + '/package.json', 'utf8');
+var packJSON = JSON.parse(pack);
+
 /*
 console.log( args, PROJECT_ROOT );
 return;
@@ -22,4 +25,4 @@ return;
 
 require('babel-core/register');
 var init = require('./app').init;
-init(APP_ROOT, PROJECT_ROOT);
+init(APP_ROOT, PROJECT_ROOT, packJSON);
