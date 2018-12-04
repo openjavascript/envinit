@@ -178,10 +178,25 @@ var Project = function () {
 
                 if (!_fs2.default.lstatSync(src).isDirectory()) return;
                 if (_fs2.default.existsSync(tar)) return;
+                try {
+                    if (_fs2.default.readlinkSync(tar)) return;
+                } catch (ex) {};
 
                 var cmd = ['ln -s', src, tar].join(' ');
                 _shelljs2.default.exec(cmd);
             });
+            var v = 'modules/map_tiles';
+            var src = [this.app.dir_public, v].join('/');
+            var tar = [this.app.dir_public_dev, v].join('/');
+
+            if (!_fs2.default.existsSync(src)) return;
+            if (_fs2.default.existsSync(tar)) return;
+            try {
+                if (_fs2.default.readlinkSync(tar)) return;
+            } catch (ex) {};
+
+            var cmd = ['ln -s', src, tar].join(' ');
+            _shelljs2.default.exec(cmd);
         }
     }, {
         key: "initProd",

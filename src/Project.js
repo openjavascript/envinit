@@ -138,10 +138,26 @@ export default class Project {
 
             if( !fs.lstatSync(src).isDirectory() ) return;
             if( fs.existsSync( tar ) ) return;
+            try{
+                if( fs.readlinkSync( tar ) ) return;
+            }catch(ex){};
 
             let cmd = [ 'ln -s', src, tar ].join( ' ' );
             shell.exec( cmd );
         });
+        let v = 'modules/map_tiles';
+        let src = [ this.app.dir_public, v ].join( '/' );
+        let tar  = [ this.app.dir_public_dev, v ].join( '/' );
+
+        if( !fs.existsSync( src ) ) return;
+        if( fs.existsSync( tar ) ) return;
+        try{
+            if( fs.readlinkSync( tar ) ) return;
+        }catch(ex){};
+
+        let cmd = [ 'ln -s', src, tar ].join( ' ' );
+        shell.exec( cmd );
+
     }
 
     initProd() {
