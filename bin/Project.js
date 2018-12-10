@@ -135,7 +135,7 @@ var Project = function () {
                 cmdinfo = shell.exec( cmd );
                 return;
             }
-             pmgName = 'cnpm';
+              pmgName = 'cnpm';
             pmg = shell.which( pmgName );
             //console.log( pmg );
             if( pmg ) {
@@ -147,7 +147,7 @@ var Project = function () {
                 cmdinfo = shell.exec( cmd );
                 return;
             }
-             pmgName = 'npm';
+              pmgName = 'npm';
             pmg = shell.which( pmgName );
             //console.log( pmg );
             if( pmg ) {
@@ -172,20 +172,15 @@ var Project = function () {
             var public_dir = _fs2.default.readdirSync(this.app.dir_public);
 
             public_dir.map(function (v) {
-                //console.log( v );
-                var src = [_this.app.dir_public, v].join('/');
-                var tar = [_this.app.dir_public_dev, v].join('/');
-
-                if (!_fs2.default.lstatSync(src).isDirectory()) return;
-                if (_fs2.default.existsSync(tar)) return;
-                try {
-                    if (_fs2.default.readlinkSync(tar)) return;
-                } catch (ex) {};
-
-                var cmd = ['ln -s', src, tar].join(' ');
-                _shelljs2.default.exec(cmd);
+                _this.setLn(v);
             });
-            var v = 'modules/map_tiles';
+            this.setLn('modules/map_tiles');
+            this.setLn('modules/map_fonts');
+            this.setLn('modules/mapbox-gl');
+        }
+    }, {
+        key: "setLn",
+        value: function setLn(v) {
             var src = [this.app.dir_public, v].join('/');
             var tar = [this.app.dir_public_dev, v].join('/');
 

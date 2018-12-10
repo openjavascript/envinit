@@ -132,20 +132,14 @@ export default class Project {
         let public_dir = fs.readdirSync( this.app.dir_public );
 
         public_dir.map( ( v ) => {
-            //console.log( v );
-            let src = [ this.app.dir_public, v ].join( '/' );
-            let tar  = [ this.app.dir_public_dev, v ].join( '/' );
-
-            if( !fs.lstatSync(src).isDirectory() ) return;
-            if( fs.existsSync( tar ) ) return;
-            try{
-                if( fs.readlinkSync( tar ) ) return;
-            }catch(ex){};
-
-            let cmd = [ 'ln -s', src, tar ].join( ' ' );
-            shell.exec( cmd );
+            this.setLn( v );
         });
-        let v = 'modules/map_tiles';
+        this.setLn( 'modules/map_tiles' );
+        this.setLn( 'modules/map_fonts' );
+        this.setLn( 'modules/mapbox-gl' );
+    }
+
+    setLn( v ){
         let src = [ this.app.dir_public, v ].join( '/' );
         let tar  = [ this.app.dir_public_dev, v ].join( '/' );
 
