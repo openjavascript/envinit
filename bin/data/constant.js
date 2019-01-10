@@ -8,6 +8,7 @@ var TITLE = exports.TITLE = '项目环境初始化工具';
 
 var NEXT_VIRUS = exports.NEXT_VIRUS = "next_virus_scanner_web";
 var PRIVATE_OPERATION = exports.PRIVATE_OPERATION = "private_operation_web";
+var NEW_PRIVATE_OPERATION = exports.NEW_PRIVATE_OPERATION = "cloud_manager";
 
 var project_items = {};
 project_items[NEXT_VIRUS] = {
@@ -15,6 +16,10 @@ project_items[NEXT_VIRUS] = {
     "value": "1"
 };
 project_items[PRIVATE_OPERATION] = {
+    "name": "云运营平台",
+    "value": "2"
+};
+project_items[NEW_PRIVATE_OPERATION] = {
     "name": "云运营平台",
     "value": "2"
 };

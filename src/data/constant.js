@@ -5,6 +5,7 @@ export const TITLE = '项目环境初始化工具';
 
 export const NEXT_VIRUS = "next_virus_scanner_web";
 export const PRIVATE_OPERATION = "private_operation_web";
+export const NEW_PRIVATE_OPERATION = "cloud_manager";
 
 let project_items = {};
 project_items[ NEXT_VIRUS ] =  {
@@ -12,6 +13,10 @@ project_items[ NEXT_VIRUS ] =  {
     , "value": "1"
 };
 project_items[ PRIVATE_OPERATION ] =  {
+    "name": "云运营平台"
+    , "value": "2"
+};
+project_items[ NEW_PRIVATE_OPERATION ] =  {
     "name": "云运营平台"
     , "value": "2"
 };
