@@ -39,16 +39,16 @@ var warning = _chalk2.default.keyword('orange');
 var success = _chalk2.default.greenBright;
 var info = _chalk2.default.bold.blue;
 
-var ProjectAutoPenetrationTest = function (_Project) {
-    _inherits(ProjectAutoPenetrationTest, _Project);
+var ProjectPrivateOperation = function (_Project) {
+    _inherits(ProjectPrivateOperation, _Project);
 
-    function ProjectAutoPenetrationTest(app) {
-        _classCallCheck(this, ProjectAutoPenetrationTest);
+    function ProjectPrivateOperation(app) {
+        _classCallCheck(this, ProjectPrivateOperation);
 
-        return _possibleConstructorReturn(this, (ProjectAutoPenetrationTest.__proto__ || Object.getPrototypeOf(ProjectAutoPenetrationTest)).call(this, app));
+        return _possibleConstructorReturn(this, (ProjectPrivateOperation.__proto__ || Object.getPrototypeOf(ProjectPrivateOperation)).call(this, app));
     }
 
-    _createClass(ProjectAutoPenetrationTest, [{
+    _createClass(ProjectPrivateOperation, [{
         key: "init",
         value: function init() {
             this.initEnv();
@@ -62,7 +62,7 @@ var ProjectAutoPenetrationTest = function (_Project) {
         }
     }]);
 
-    return ProjectAutoPenetrationTest;
+    return ProjectPrivateOperation;
 }(_Project3.default);
 
-exports.default = ProjectAutoPenetrationTest;
+exports.default = ProjectPrivateOperation;

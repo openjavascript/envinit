@@ -6,19 +6,29 @@ export const TITLE = '项目环境初始化工具';
 export const NEXT_VIRUS = "next_virus_scanner_web";
 export const PRIVATE_OPERATION = "private_operation_web";
 export const NEW_PRIVATE_OPERATION = "cloud_manager";
+export const AUTO_PENETRATION_TEST = "auto-penetration-test";
+export const AUTO_PENETRATION_TESTX = "auto_penetration_test";
 
 let project_items = {};
-project_items[ NEXT_VIRUS ] =  {
-    "name": "行为分析项目"
-    , "value": "1"
+project_items[NEXT_VIRUS] = {
+    "name": "行为分析项目",
+    "value": "1"
 };
-project_items[ PRIVATE_OPERATION ] =  {
-    "name": "云运营平台"
-    , "value": "2"
+project_items[PRIVATE_OPERATION] = {
+    "name": "云运营平台",
+    "value": "2"
 };
-project_items[ NEW_PRIVATE_OPERATION ] =  {
-    "name": "云运营平台"
-    , "value": "2"
+project_items[NEW_PRIVATE_OPERATION] = {
+    "name": "云运营平台",
+    "value": "2"
+};
+project_items[AUTO_PENETRATION_TEST] = {
+    "name": "自动化渗透测试",
+    "value": "3"
+};
+project_items[AUTO_PENETRATION_TESTX] = {
+    "name": "自动化渗透测试",
+    "value": "3"
 };
 export const PROJECT_ITEMS = project_items;
 

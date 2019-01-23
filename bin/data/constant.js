@@ -9,6 +9,8 @@ var TITLE = exports.TITLE = '项目环境初始化工具';
 var NEXT_VIRUS = exports.NEXT_VIRUS = "next_virus_scanner_web";
 var PRIVATE_OPERATION = exports.PRIVATE_OPERATION = "private_operation_web";
 var NEW_PRIVATE_OPERATION = exports.NEW_PRIVATE_OPERATION = "cloud_manager";
+var AUTO_PENETRATION_TEST = exports.AUTO_PENETRATION_TEST = "auto-penetration-test";
+var AUTO_PENETRATION_TESTX = exports.AUTO_PENETRATION_TESTX = "auto_penetration_test";
 
 var project_items = {};
 project_items[NEXT_VIRUS] = {
@@ -22,6 +24,14 @@ project_items[PRIVATE_OPERATION] = {
 project_items[NEW_PRIVATE_OPERATION] = {
     "name": "云运营平台",
     "value": "2"
+};
+project_items[AUTO_PENETRATION_TEST] = {
+    "name": "自动化渗透测试",
+    "value": "3"
+};
+project_items[AUTO_PENETRATION_TESTX] = {
+    "name": "自动化渗透测试",
+    "value": "3"
 };
 var PROJECT_ITEMS = exports.PROJECT_ITEMS = project_items;
 

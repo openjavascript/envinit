@@ -13,7 +13,7 @@ const info = chalk.bold.blue;
 
 import Project from './Project.js';
 
-export default class ProjectAutoPenetrationTest extends Project {
+export default class ProjectPrivateOperation extends Project {
     constructor( app ){
         super( app );
     }

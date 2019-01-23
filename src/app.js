@@ -20,7 +20,7 @@ import * as DATA from './data/data.js';
 
 import ProjectNextVirus from './ProjectNextVirus.js';
 import ProjectPrivateOperation from './ProjectPrivateOperation.js';
-
+import ProjectAutoPenetrationTest from './ProjectAutoPenetrationTest.js';
 
 export default class App {
     constructor( appRoot, projectRoot, packJSON ) {
@@ -165,6 +165,10 @@ export default class App {
 
     project_2() {
         this.project = new ProjectPrivateOperation( this );
+    }
+
+    project_3() {
+        this.project = new ProjectAutoPenetrationTest( this );
     }
 
     async nodeCmdList() {

@@ -52,6 +52,10 @@ var _ProjectPrivateOperation = require("./ProjectPrivateOperation.js");
 
 var _ProjectPrivateOperation2 = _interopRequireDefault(_ProjectPrivateOperation);
 
+var _ProjectAutoPenetrationTest = require("./ProjectAutoPenetrationTest.js");
+
+var _ProjectAutoPenetrationTest2 = _interopRequireDefault(_ProjectAutoPenetrationTest);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -200,6 +204,11 @@ var App = function () {
         key: "project_2",
         value: function project_2() {
             this.project = new _ProjectPrivateOperation2.default(this);
+        }
+    }, {
+        key: "project_3",
+        value: function project_3() {
+            this.project = new _ProjectAutoPenetrationTest2.default(this);
         }
     }, {
         key: "nodeCmdList",
