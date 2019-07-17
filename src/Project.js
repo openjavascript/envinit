@@ -68,7 +68,6 @@ export default class Project {
     initNode() {
         let cmd, cmdinfo, pmg, pmgName;
 
-
         pmgName = this.app.nodeCmd;
         pmg = shell.which( pmgName );
         //console.log( pmg );
@@ -81,7 +80,6 @@ export default class Project {
             cmdinfo = shell.exec( cmd );
             return;
         }
-
 
         /*
         pmgName = 'yarn';
@@ -131,6 +129,10 @@ export default class Project {
     initStaticDir() {
         let public_dir = fs.readdirSync( this.app.dir_public );
 
+        if( !this.app.fileExists( this.app.dir_public_dev ) ) {
+            return;
+        }
+
         public_dir.map( ( v ) => {
             this.setLn( v );
         });
@@ -140,6 +142,10 @@ export default class Project {
     }
 
     setLn( v ){
+        if( !this.app.fileExists( this.app.dir_public_dev ) ) {
+            return;
+        }
+
         let src = [ this.app.dir_public, v ].join( '/' );
         let tar  = [ this.app.dir_public_dev, v ].join( '/' );
 
@@ -186,6 +192,9 @@ export default class Project {
 
     initEnv() {
         let data;
+        if( !this.app.fileExists( this.app.file_envsrc ) ) {
+            return;
+        }
         if( !this.app.fileExists( this.app.file_env ) ) {
             data = fs.readFileSync( this.app.file_envsrc,'utf8'); 
             fs.writeFileSync( this.app.file_env, data, { encoding: 'utf8' } );

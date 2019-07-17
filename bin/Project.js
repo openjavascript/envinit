@@ -171,6 +171,10 @@ var Project = function () {
 
             var public_dir = _fs2.default.readdirSync(this.app.dir_public);
 
+            if (!this.app.fileExists(this.app.dir_public_dev)) {
+                return;
+            }
+
             public_dir.map(function (v) {
                 _this.setLn(v);
             });
@@ -181,6 +185,10 @@ var Project = function () {
     }, {
         key: "setLn",
         value: function setLn(v) {
+            if (!this.app.fileExists(this.app.dir_public_dev)) {
+                return;
+            }
+
             var src = [this.app.dir_public, v].join('/');
             var tar = [this.app.dir_public_dev, v].join('/');
 
@@ -228,6 +236,9 @@ var Project = function () {
         key: "initEnv",
         value: function initEnv() {
             var data = void 0;
+            if (!this.app.fileExists(this.app.file_envsrc)) {
+                return;
+            }
             if (!this.app.fileExists(this.app.file_env)) {
                 data = _fs2.default.readFileSync(this.app.file_envsrc, 'utf8');
                 _fs2.default.writeFileSync(this.app.file_env, data, { encoding: 'utf8' });
