@@ -52,7 +52,7 @@ var ProjectPrivateOperation = function (_Project) {
         key: "init",
         value: function init() {
             this.initEnv();
-            //this.initProd();
+            this.initProd();
             this.initStaticDir();
             this.initPermission(true);
             this.initNode();

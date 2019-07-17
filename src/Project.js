@@ -156,6 +156,9 @@ export default class Project {
 
     initProd() {
         let data;
+        if( !this.app.fileExists( this.app.file_prodsrc ) ) {
+            return;
+        }
         if( !this.app.fileExists( this.app.file_prod ) ) {
             //console.log( error( 'prod not exists' ) );
             data = fs.readFileSync( this.app.file_prodsrc,'utf8'); 

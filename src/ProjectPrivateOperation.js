@@ -20,7 +20,7 @@ export default class ProjectAutoPenetrationTest extends Project {
 
     init() {
         this.initEnv();
-        //this.initProd();
+        this.initProd();
         this.initStaticDir();
         this.initPermission(true);
         this.initNode();

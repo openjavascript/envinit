@@ -197,6 +197,9 @@ var Project = function () {
         key: "initProd",
         value: function initProd() {
             var data = void 0;
+            if (!this.app.fileExists(this.app.file_prodsrc)) {
+                return;
+            }
             if (!this.app.fileExists(this.app.file_prod)) {
                 //console.log( error( 'prod not exists' ) );
                 data = _fs2.default.readFileSync(this.app.file_prodsrc, 'utf8');
